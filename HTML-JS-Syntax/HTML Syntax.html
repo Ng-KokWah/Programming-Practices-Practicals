@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- define the character set used -->
+	<meta charset="utf-8" />
+	<!-- define a description of your webpage -->
+	<meta name="description" content="Test" />
+	<!-- define keywords for search engine-->
+	<meta name="keywords" content="HTML, CSS, JS" />
+	<!-- define the author of the page-->
+	<meta name="author" content="John Doe" />
+	<!-- refresh document every 30 seconds-->
+	<meta http-equiv="refresh" content="30" />
+	<!-- the following tag is especially useful if you dont want to define a @media screen and for every component-->
+	<!-- this sets the viewport which is the scaling property-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>HTML Page</title>
+	<link rel="stylesheet" href="style.css" />
+	
+	<style>
+		* {
+			margin: 10px;
+		}
+		
+		button:hover {
+			background-color: black;
+			color:white;
+		}
+	</style>
+	
+	<script src="script.js"></script>
+	<script>
+		function clicked() {
+			document.getElementById("demo").innerHTML = "Hello!";
+		}
+	</script>
+</head>
+<body>
+	<h1 id="go-top">heading 1, this is the biggest in terms of font size</h1>
+	<p>paragraph</p>
+	
+	<ol>
+		<li>this is an item in an ordered list</li>
+	</ol>
+	
+	<ul>
+		<li>this is an item in an unordered list</li>
+	</ul>
+	
+	<video src="https://www.youtube.com/watch?v=lqj7T2l-G8Q" controls>
+	If the video is not supported this would display
+	</video>
+	
+	<img src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg"
+	alt="image of an island" />
+	
+	<!--Embed tag-->
+	<embed src="https://media3.giphy.com/media/7DzlajZNY5D0I/giphy.gif?cid=ecf05e47ad5974db90df38713f8fae03d8a4f825b409c7f6&rid=giphy.gif"/>
+	
+	<figure>
+		<img src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg">
+		<figcaption>The image shows an island.</figcaption>
+	</figure>
+
+	
+	<p>this word is <em>emphasized</em> in italics </p>
+	<p>this word is <strong>strong</strong> which would appear bold </p>
+	
+	<div>
+		<p> this paragraph is in a division this makes it easier to group elements together</p>
+	</div>
+	
+	<p id="para1">NOTE IDs need to be unique</p>
+	
+	<a href="https://www.google.com/" target="_blank">Click to go to google on a new tab</a>
+	
+	<p> Go to <a href="#go-top">top</a> </p>
+	
+	<!-- this is a comment -->
+	
+	<table style="border: 1px solid black;">
+		<!-- this is to contain the heading for the table -->
+		<thead>
+			<!-- this is a row in a table-->
+			<tr>
+				<!-- this is a heading of the table so it would be bold -->
+				<th>heading 1</th>
+				<th>heading 2</th>
+			</tr>
+		</thead>
+		<!-- this contains everything other than the heading and footer of a table -->
+		<tbody>
+			<tr> 
+				<td>row 1 cell 1</td>
+				<td>row 1 cell 2</td>
+			</tr>
+			<tr>
+				<td>row 2 cell 1</td>
+				<td>row 2 cell 2</td>
+			</tr>
+		</tbody>
+		<!-- this contains the footer of the table -->
+		<tfoot>
+			<tr>
+				<td>summary of col 1</td>
+				<td>summary of col 2</td>
+			</tr>
+		</tfoot>
+	</table>
+	
+	<!-- form methods includes get or post, 
+		get would append the form data into the URL in name value pairs and is limited to 3000 characters
+		<RECOMMENDED> post would append the form data into the http request and has no limits
+		
+		using get method would just appeand it in the url using the name as the name
+		e.g. page.html?breakfast=bacon&comment=test
+
+		if you have a php page you would be able to set it to perform some action on receiving the get or post request
+		in that case you would need to put
+		<form method="post" action="./sent.php">
+	-->
+	<form method="get">
+		<!-- checkbox -->
+		<input type="checkbox" name="breakfast" value="bacon">Bacon 🥓<br>
+		<input type="checkbox" name="breakfast" value="eggs">Eggs 🍳<br>
+		<input type="checkbox" name="breakfast" value="pancakes">Pancakes 🥞<br>
+		
+		<!-- multi line textbox -->
+		<textarea rows="10" cols="30" name="comment"></textarea>
+		<br />
+		
+		<!-- only allow number inputs-->
+		<input type="number" name="balance" /> 
+		<br />
+		
+		<!-- radio button only allow selection of one value -->
+		<input type="radio" id="male" name="gender" value="male">
+		<label for="male">Male</label><br>
+		<input type="radio" id="female" name="gender" value="female">
+		<label for="female">Female</label><br>
+		<input type="radio" id="other" name="gender" value="other">
+		<label for="other">Other</label>
+		<br />
+		
+		<!-- this is a draggable element like a volume slider -->
+		<input type="range" name="movie-rating" min="0" max="10" step="0.1">
+		<br />
+		
+		<!-- this is a dropdown box -->
+		<select name="rental-option">
+			<option value="small">Small</option>
+			<option value="family">Family Sedan</option>
+			<option value="lux">Luxury</option>
+		</select>
+		<br />
+		
+		<!-- textbox 
+		using the readonly means no one can modify the value
+		using the required means that this field must be filled before the form can be submitted
+		-->
+		locked: <input type="text" name="locked" value="TEST" readonly>
+		<br />
+		Name: <input type="text" name="username" minlength="6" maxlength="10" required>
+		<br />
+		Password: <input type="password" name="pass" required>
+		<br />
+		<!-- using the pattern means setting a regular expression -->
+		Country code: 
+		<input type="text" name="country_code" 
+         pattern="[A-Za-z]{3}" 
+         title="Three letter country code">
+		 <br />
+		 
+		 <!-- combining the datalist with the input would allow for autocomplete functionality-->
+		<input list="ide">
+  
+		<datalist id="ide">
+			<option value="Visual Studio Code" />
+			<option value="Atom" />
+			<option value="Sublime Text" />
+		</datalist>
+		<br />
+		<input type="submit" value="Submit">
+		
+	</form>
+	<button onclick="clicked()">Click Me!</button>
+	<p id="demo"></p>
+</body>
+</html>
